@@ -1,2 +1,2 @@
 # npm-demo
-Experiment with GIT and NODE
+Experimenting with GIT and NODE
