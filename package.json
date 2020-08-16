@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/TendoGit/npm-demo#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "mongoose": "^5.10.0",
     "underscore": "^1.10.2"
   },
