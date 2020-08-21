@@ -1,3 +1,4 @@
+const debug = require('debug')('app:startup');
 const config = require('config');
 const morgan = require('morgan');
 const helmet = require('helmet');
@@ -8,7 +9,10 @@ const app = express();
 //Middleware
 app.use(express.json());
 app.use(helmet());
-app.use(morgan('tiny'));
+if (app.get('env') === 'development') {
+    app.use(morgan('tiny'));
+    debug('Morgan enabled...')
+}
 
 //Configuration
 console.log(`Application Name: ${config.get('name')}`);
