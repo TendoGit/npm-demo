@@ -1,12 +1,19 @@
+const config = require('config');
 const morgan = require('morgan');
 const helmet = require('helmet');
 const Joi = require('joi');
 const express =  require('express');
 const app = express();
 
+//Middleware
 app.use(express.json());
 app.use(helmet());
 app.use(morgan('tiny'));
+
+//Configuration
+console.log(`Application Name: ${config.get('name')}`);
+console.log(`Mail Server: ${config.get('mail.host')}`);
+console.log(`Mail Password: ${config.get('mail.password')}`);
 
 const courses  = [
     {id: 1, name: 'Course1'},
