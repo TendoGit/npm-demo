@@ -6,7 +6,9 @@ const Joi = require('joi');
 const express =  require('express');
 const app = express();
 
-//Middleware
+app.set('view engine', 'pug');
+app.set('views', './views');
+
 app.use(express.json());
 app.use(helmet());
 if (app.get('env') === 'development') {
@@ -26,7 +28,10 @@ const courses  = [
 ];
 
 app.get('/', (req, res) => {
-    res.send('Hello World!!!');
+    res.render('index', {
+        title: 'My Express App',
+        message: 'Welcome'
+    });
 });
 
 app.get('/api/courses', (req, res) => {
